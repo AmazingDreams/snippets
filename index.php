@@ -1,12 +1,11 @@
 <?php
 	// Configuration
-	//define('DOCROOT', $_SERVER['DOCUMENT_ROOT'].'/developers/teun/snippets');
 	include('config.php');
 
 	// Get filename
-	$filename = $_GET['file'];
-	$file     = $config['root'].'/snippets/'.$filename;
-	$ext      = preg_replace('/^.*\.([^.]+)$/D', '$1', $file);
+	$filename = array_key_exists('file', $_GET) ? $_GET['file'] : NULL;
+	$file     = $filename ? $config['root'].'/snippets/'.$filename : NULL;
+	$ext      = $file ? preg_replace('/^.*\.([^.]+)$/D', '$1', $file) : NULL;
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +16,7 @@
 	</head>
 	<body>
 		<h1><?php echo $filename; ?></h1>
-
-		<?php if(file_exists($file)): ?>
+		<?php if($file AND file_exists($file)): ?>
 			<pre class="prettyprint lang-<?php echo $ext; ?> linenums"><?php echo htmlentities(file_get_contents($file)); ?></pre>
 		<?php else: ?>
 			<h3>File not found :( </h3>
