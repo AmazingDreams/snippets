@@ -25,7 +25,7 @@
 	<body>
 		<div class="files-wrapper">
 			<?php foreach($all_files as $available): ?>
-				<a href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?></a><br>
+				<a href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?></a>
 			<?php endforeach; ?>
 		</div>
 
