@@ -25,12 +25,10 @@
 		<link href="static/css/screen.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
-		<div class="files">
-			<ul>
-				<?php foreach($all_files as $available): ?>
-					<li><a href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?></a> - <?php echo date('H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></li>
-				<?php endforeach; ?>
-			</ul>
+		<div class="files-wrapper">
+			<?php foreach($all_files as $available): ?>
+				<a href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?> - <?php echo date('H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></a>
+			<?php endforeach; ?>
 		</div>
 		<div class="code-wrapper">
 		<h1><?php echo $filename; ?></h1>
