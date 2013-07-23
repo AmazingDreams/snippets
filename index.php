@@ -7,11 +7,10 @@ define('DOCROOT', $_SERVER['DOCUMENT_ROOT']);
 
 $config = require_once 'config.php';
 
-echo $config['install_dir'];
-
 // Get filename
-$file = "{$config['install_dir']}/snippets/{$_GET['file']}";
-$ext  = preg_replace('/^.*\.([^.]+)$/D', '$1', $file);
+$filename = $_GET['file'];
+$file     = "{$config['install_dir']}/snippets/$filename";
+$ext      = preg_replace('/^.*\.([^.]+)$/D', '$1', $file);
 ?>
 
 <html>
@@ -20,20 +19,7 @@ $ext  = preg_replace('/^.*\.([^.]+)$/D', '$1', $file);
 		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js"></script>
 	</head>
 	<body>
-		<pre class="prettyprint lang-css">
-			div.some-css { 
-				width: test; 
-			}
-		</pre>
-
-
-		<pre class="prettyprint lang-sql">
-			SELECT * FROM some_table
-		</pre>
-
-		<pre class="prettyprint lang-js">
-			$.each(dummy, function() { alert('hello'); });
-		</pre>
+		<h1><?php echo $filename; ?></h1>
 
 		<?php if(file_exists($file)): ?>
 			<pre class="prettyprint lang-<?php echo $ext; ?> linenums">
