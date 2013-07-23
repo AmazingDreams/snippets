@@ -27,7 +27,7 @@
 	<body>
 		<div class="files-wrapper">
 			<?php foreach($all_files as $available): ?>
-				<a href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?> - <?php echo date('H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></a>
+				<a <?php if ($filename == $available): ?>class="selected" <?php endif; ?>href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?> - <?php echo date('H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></a>
 			<?php endforeach; ?>
 		</div>
 		<div class="code-wrapper">

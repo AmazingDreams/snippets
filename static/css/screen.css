@@ -14,7 +14,8 @@ div.files-wrapper a {
 	text-decoration: none;
 	padding: 2px;
 }
-div.files-wrapper a:hover {
+div.files-wrapper a:hover,
+div.files-wrapper a.selected {
 	background-color: #edf3fe;
 	text-decoration: underline;
 }
