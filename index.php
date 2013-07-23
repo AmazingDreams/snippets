@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+<?php
+/**
+ * Configuration
+ */
+define('DOCROOT', $_SERVER['DOCUMENT_ROOT']);
+
+$config = require_once 'config.php';
+
+echo $config['install_dir'];
+
+// Get filename
+$file = "{$config['install_dir']}/snippets/{$_GET['file']}";
+$ext  = preg_replace('/^.*\.([^.]+)$/D', '$1', $file);
+?>
 
 <html>
 	<head>
@@ -12,6 +26,7 @@
 			}
 		</pre>
 
+
 		<pre class="prettyprint lang-sql">
 			SELECT * FROM some_table
 		</pre>
@@ -20,8 +35,12 @@
 			$.each(dummy, function() { alert('hello'); });
 		</pre>
 
-		<pre class="prettyprint lang-php">
-<?php echo htmlentities(file_get_contents('test.php')); ?>
-		</pre>
+		<?php if(file_exists($file)): ?>
+			<pre class="prettyprint lang-<?php echo $ext; ?> linenums">
+<?php echo htmlentities(file_get_contents("$file")); ?>
+			</pre>
+		<?php else: ?>
+			<h3>File not found :( </h3>
+		<?php endif; ?>
 	</body>
 </html>
