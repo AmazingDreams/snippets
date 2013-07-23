@@ -21,7 +21,7 @@
 <html>
 	<head>
 		<link href="static/js/vendor/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js"></script>
+		<script type="text/javascript" src="static/js/vendor/google-code-prettify/prettify.js"></script>
 	</head>
 	<body>
 		<div class="files">
@@ -37,5 +37,10 @@
 		<?php else: ?>
 			<h3>File not found :( </h3>
 		<?php endif; ?>
+
+
+	<script type="text/javascript">
+		prettyPrint();
+	</script>
 	</body>
 </html>
