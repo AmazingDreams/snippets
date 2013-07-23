@@ -22,7 +22,7 @@
 <html>
 	<head>
 		<link href="static/js/vendor/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="static/js/vendor/google-code-prettify/prettify.js"></script>
+		<link href="static/css/screen.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="files">
@@ -32,18 +32,13 @@
 				<?php endforeach; ?>
 			</ul>
 		</div>
-
-		<div class="selected-file">
+		<div class="code-wrapper">
 		<h1><?php echo $filename; ?></h1>
 		<?php if($file AND file_exists($file)): ?>
 			<pre class="prettyprint lang-<?php echo $ext; ?>"><?php echo htmlentities(file_get_contents($file)); ?></pre>
 		<?php else: ?>
-			<h3>File not found :( </h3>
+			<p>File not found :( </p>
 		<?php endif; ?>
-
-
-	<script type="text/javascript">
-		prettyPrint();
-	</script>
+		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js?skin=desert"></script>
 	</body>
 </html>

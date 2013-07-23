@@ -1,0 +1,24 @@
+body {
+	font: 13px Arial, Helvetica, sans-serif;
+}
+a {
+	color: #3875d7;
+}
+div.files-wrapper {
+	float: left;
+	margin: 0 1% 0 0;
+	width: 19%;
+}
+div.files-wrapper a {
+	display: block;
+	text-decoration: none;
+	padding: 2px;
+}
+div.files-wrapper a:hover {
+	background-color: #edf3fe;
+	text-decoration: underline;
+}
+div.code-wrapper {
+	float: left;
+	width: 80%;
+}
