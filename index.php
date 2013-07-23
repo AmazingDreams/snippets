@@ -13,10 +13,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="static/css/style.css" type="text/css" rel="stylesheet" />
+		<link href="static/css/screen.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
-		<div class="files">
+		<div class="files-wrapper">
 			<?php $directory = opendir('snippets'); ?>
 			<?php while($iterator = readdir($directory)): ?>
 				<?php if(strpos($iterator, '.') == 0) continue;  ?>
@@ -25,12 +25,12 @@
 			<?php endwhile; ?>
 		</div>
 
-		<div class="selected-file">
+		<div class="code-wrapper">
 		<h1><?php echo $filename; ?></h1>
 		<?php if($file AND file_exists($file)): ?>
 			<pre class="prettyprint lang-<?php echo $ext; ?> linenums"><?php echo htmlentities(file_get_contents($file)); ?></pre>
 		<?php else: ?>
-			<h3>File not found :( </h3>
+			<p>File not found :( </p>
 		<?php endif; ?>
 
 		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js?skin=desert"></script>
