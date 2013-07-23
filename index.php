@@ -2,8 +2,8 @@
 
 <html>
 	<head>
-		<link href="media/vendor/prettify/prettify.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="media/vendor/prettify/run_prettify.js"></script>
+		<link href="static/js/vendor/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js"></script>
 	</head>
 	<body>
 		<pre class="prettyprint lang-css">
