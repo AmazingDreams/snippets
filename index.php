@@ -1,10 +1,12 @@
 <?php
+	define('DOCROOT', $_SERVER['DOCUMENT_ROOT']);
+
 	// Configuration
-	include('config.php');
+	$config = include('config.php');
 
 	// Get filename
 	$filename = array_key_exists('file', $_GET) ? $_GET['file'] : NULL;
-	$file     = $filename ? $config['root'].'/snippets/'.$filename : NULL;
+	$file     = $filename ? $config['install_dir'].'/snippets/'.$filename : NULL;
 	$ext      = $file ? preg_replace('/^.*\.([^.]+)$/D', '$1', $file) : NULL;
 ?>
 
