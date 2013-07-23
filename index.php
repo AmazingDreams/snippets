@@ -3,6 +3,7 @@
 
 	// Configuration
 	$config = include('config.php');
+	date_default_timezone_set('Europe/Amsterdam');
 
 	// Include files
 	require_once('application/read-directory.php');
@@ -25,9 +26,11 @@
 	</head>
 	<body>
 		<div class="files">
-			<?php foreach($all_files as $available): ?>
-				<a href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?></a><br>
-			<?php endforeach; ?>
+			<ul>
+				<?php foreach($all_files as $available): ?>
+					<li><a href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?></a> - <?php echo date('H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 
 		<div class="selected-file">
