@@ -13,12 +13,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="static/js/vendor/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js"></script>
+		<link href="static/css/style.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="files">
-			<?php $directory = opendir("snippets"); ?>
+			<?php $directory = opendir('snippets'); ?>
 			<?php while($iterator = readdir($directory)): ?>
 				<?php if(strpos($iterator, '.') == 0) continue;  ?>
 
@@ -33,5 +32,7 @@
 		<?php else: ?>
 			<h3>File not found :( </h3>
 		<?php endif; ?>
+
+		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js?skin=desert"></script>
 	</body>
 </html>
