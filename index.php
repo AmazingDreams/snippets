@@ -27,11 +27,17 @@
 	<body>
 		<div class="files-wrapper">
 			<?php foreach($all_files as $available): ?>
-				<a <?php if ($filename == $available): ?>class="selected" <?php endif; ?>href="<?php echo $config['url'] .'?file='. $available; ?>"><?php echo $available; ?> - <?php echo date('H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></a>
+				<a <?php if ($filename == $available): ?>class="selected" <?php endif; ?>href="<?php echo $config['url'] .'?file='. $available; ?>">
+					<span class="title"><?php echo $available; ?></span>
+					<span class="mtime"><?php echo date('H:i', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></span>
+				</a>
 			<?php endforeach; ?>
 		</div>
 		<div class="code-wrapper">
-		<h1><?php echo $filename; ?></h1>
+		<h1>
+			<span class="main"><?php echo $filename; ?></span>
+			<span class="sub">Last modified: <?php echo date('d M, Y H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></span>
+		</h1>
 		<?php if($file AND file_exists($file)): ?>
 			<pre class="prettyprint lang-<?php echo $ext; ?>"><?php echo htmlentities(file_get_contents($file)); ?></pre>
 		<?php else: ?>
