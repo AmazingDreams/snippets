@@ -6,6 +6,7 @@
 	date_default_timezone_set('Europe/Amsterdam');
 
 	// Include files
+	require_once('application/helper-functions.php');
 	require_once('application/read-directory.php');
 	require_once('application/sanitize.php');
 
@@ -23,8 +24,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="static/js/vendor/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-		<link href="static/css/screen.css" type="text/css" rel="stylesheet" />
+		<link href="<?php echo site_url('static/js/vendor/google-code-prettify/prettify.css'); ?>" type="text/css" rel="stylesheet" />
+		<link href="<?php echo site_url('static/css/screen.css'); ?>" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="files-wrapper">
@@ -45,6 +46,6 @@
 		<?php else: ?>
 			<p>File not found :( </p>
 		<?php endif; ?>
-		<script type="text/javascript" src="static/js/vendor/google-code-prettify/run_prettify.js?skin=desert"></script>
+	<script type="text/javascript" src="<?php echo site_url('static/js/vendor/google-code-prettify/run_prettify.js?skin=desert'); ?>"></script>
 	</body>
 </html>
