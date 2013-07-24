@@ -1,5 +1,5 @@
 <?php
 return array(
-	'url'         => 'http://webdev.troiplaybook.com/developers/dennis/snippets',
-	'install_dir' => DOCROOT.'/developers/dennis/snippets',
+	'url'         => 'http://example.com/snippets',
+	'install_dir' => DOCROOT.'/snippets',
 );
