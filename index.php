@@ -7,12 +7,14 @@
 
 	// Include files
 	require_once('application/read-directory.php');
+	require_once('application/sanitize.php');
 
 	$all_files = read_directory_by_date("snippets");
 
 	// Get filename
 	$filename = array_key_exists('file', $_GET) ? $_GET['file'] : NULL;
 	$filename = ( ! $filename AND array_key_exists(0, $all_files)) ? $all_files[0] : $filename;
+	$filename = $filename ? sanitize_filename($filename) : $filename;
 
 	$file     = $filename ? $config['install_dir'].'/snippets/'.$filename : NULL;
 	$ext      = $file ? preg_replace('/^.*\.([^.]+)$/D', '$1', $file) : NULL;
