@@ -27,7 +27,7 @@
 	<body>
 		<div class="files-wrapper">
 			<?php foreach($all_files as $available): ?>
-				<a <?php if ($filename == $available): ?>class="selected" <?php endif; ?>href="<?php echo $config['url'] .'?file='. $available; ?>">
+				<a <?php if ($filename == $available): ?>class="selected" <?php endif; ?>href="<?php echo $config['url'] .'/'. $available; ?>">
 					<span class="title"><?php echo $available; ?></span>
 					<span class="mtime"><?php echo date('H:i', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></span>
 				</a>
@@ -39,7 +39,7 @@
 			<span class="sub">Last modified: <?php echo date('d M, Y H:i:s', filemtime($config['install_dir'] .'/snippets/'. $available)); ?></span>
 		</h1>
 		<?php if($file AND file_exists($file)): ?>
-			<pre class="prettyprint lang-<?php echo $ext; ?>"><?php echo htmlentities(file_get_contents($file)); ?></pre>
+			<pre class="prettyprint lang-<?php echo $ext; ?> linenums"><?php echo htmlentities(file_get_contents($file)); ?></pre>
 		<?php else: ?>
 			<p>File not found :( </p>
 		<?php endif; ?>
