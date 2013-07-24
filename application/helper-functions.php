@@ -3,6 +3,6 @@
 	{
 		global $config;
 
-		return $config['url'] .'/'. $path;
+		return $config['url'] . ((strpos($path, '/') === 0) ? $path : "/$path");
 	}
 
