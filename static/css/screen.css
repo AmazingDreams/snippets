@@ -19,7 +19,20 @@ div.files-wrapper a.selected {
 	background-color: #edf3fe;
 	text-decoration: underline;
 }
+div.files-wrapper a span.mtime {
+	color: #aaa;
+	float: right;
+}
 div.code-wrapper {
 	float: left;
 	width: 80%;
+}
+div.code-wrapper h1 {
+	color: #333;
+	font-size: 30px;
+}
+div.code-wrapper h1 span.sub{
+	color: #aaa;
+	font-size: 12px;
+	float: right;
 }
