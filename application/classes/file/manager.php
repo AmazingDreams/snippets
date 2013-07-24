@@ -115,12 +115,11 @@ class File_Manager {
 	 * This is used for getting the URL correct
 	 *
 	 * @param   String   Requested node
-	 * @param   Boolean  Append the current working directory for you or is it already appended?
 	 * @return  String   Relative path from snippet base directory
 	 */
-	public function get_snippet_path($nodename, $add_working_dir = TRUE)
+	public function get_snippet_path($nodename)
 	{
-		$nodename = ($add_working_dir) ? "{$this->get_current_working_dir()}/$nodename" : $nodename;
+		$nodename = (strpos($nodename, '/') !== 0) ? "{$this->get_current_working_dir()}/$nodename" : $nodename;
 		$nodename = $this->get_path($nodename);
 
 		return str_replace($this->get_snippet_base_dir(), '', $nodename);
@@ -136,10 +135,10 @@ class File_Manager {
 	{
 		if(strpos($append, '/') === 0)
 		{
-			return $append;
+			return rtrim($append, '/');
 		}
 
-		return "{$this->get_snippet_base_dir()}/$append";
+		return rtrim("{$this->get_snippet_base_dir()}/$append", '/');
 	}
 
 
@@ -166,7 +165,7 @@ class File_Manager {
 	 */
 	public function get_current_working_dir()
 	{
-		return $this->get_path($this->_dirpath);
+		return rtrim($this->get_path($this->_dirpath), '/.');
 	}
 
 	/**
@@ -176,7 +175,7 @@ class File_Manager {
 	 */
 	public function get_current_working_file()
 	{
-		return $this->get_current_working_dir() .'/'. $this->_filename;
+		return $this->_filename;
 	}
 
 	/**
@@ -187,5 +186,15 @@ class File_Manager {
 	public function get_current_working_file_extension()
 	{
 		return preg_replace('/^.*\.([^.]+)$/D', '$1', $this->_filename);
+	}
+
+	/**
+	 * Check whether to show the up link or not
+	 *
+	 * @return  Boolean  Show it or not
+	 */
+	public function show_up_link()
+	{
+		return ! (rtrim($this->get_current_working_dir(), '/') == $this->get_snippet_base_dir());
 	}
 }

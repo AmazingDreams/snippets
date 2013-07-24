@@ -10,7 +10,7 @@ class Manager {
 	{
 		if( ! self::$_config)
 		{
-			self::$_config = require_once('config.php');
+			self::$_config = include(INSTALL_DIR . '/config.php');
 		}
 
 		if( ! $key)
