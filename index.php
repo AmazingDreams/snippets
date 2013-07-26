@@ -43,7 +43,7 @@
 			<?php foreach($all_files as $available): ?>
 				<a <?php if ($filename == $available): ?>class="selected" <?php endif; ?>href="<?php echo Url::site($filemanager->get_snippet_path($available)); ?>">
 					<span class="title"><?php echo $available .(is_dir($filemanager->get_path($available)) ? '/' : ''); ?></span>
-					<span class="mtime"><?php echo date('H:i', filemtime($filemanager->get_path($available))); ?></span>
+					<span class="mtime"><?php echo date('H:i', filectime($filemanager->get_path($available))); ?></span>
 				</a>
 			<?php endforeach; ?>
 		</div>
