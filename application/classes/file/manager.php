@@ -175,7 +175,7 @@ class File_Manager {
 	 */
 	public function get_current_working_file()
 	{
-		return $this->_filename;
+		return $this->get_current_working_dir() .'/'. $this->_filename;
 	}
 
 	/**
