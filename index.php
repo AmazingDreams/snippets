@@ -51,7 +51,7 @@
 		<?php if($filemanager->get_current_working_file() AND file_exists($filemanager->get_path($filemanager->get_current_working_file()))): ?>
 		<h1>
 			<span class="main"><?php echo $filemanager->get_current_working_file(); ?></span>
-			<span class="sub">Last modified: <?php echo date('d M, Y H:i:s', filemtime($filemanager->get_path($filemanager->get_current_working_file()))); ?></span>
+			<span class="sub">Last modified: <?php echo date('d M, Y H:i:s', filemtime($filemanager->get_current_working_file())); ?></span>
 		</h1>
 			<pre class="prettyprint lang-<?php echo $filemanager->get_current_working_file_extension(); ?> linenums"><?php echo htmlentities(file_get_contents($filemanager->get_path($filemanager->get_current_working_file()))); ?></pre>
 		<?php else: ?>
