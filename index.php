@@ -42,18 +42,18 @@
 
 			<?php foreach($all_files as $available): ?>
 				<a <?php if ($filename == $available): ?>class="selected" <?php endif; ?>href="<?php echo Url::site($filemanager->get_snippet_path($available)); ?>">
-					<span class="title"><?php echo $available .(is_dir($filemanager->get_path($available)) ? '/' : ''); ?></span>
-					<span class="mtime"><?php echo date('H:i', filectime($filemanager->get_path($available))); ?></span>
+					<span class="title"><?php echo $available .(is_dir($filemanager->get_current_path($available)) ? '/' : ''); ?></span>
+					<span class="mtime"><?php echo date('H:i', filectime($filemanager->get_current_path($available))); ?></span>
 				</a>
 			<?php endforeach; ?>
 		</div>
 		<div class="code-wrapper">
-		<?php if($filemanager->get_current_working_file() AND file_exists($filemanager->get_path($filemanager->get_current_working_file()))): ?>
+		<?php if($filemanager->get_current_working_file() AND file_exists($filemanager->get_current_working_file_path())): ?>
 		<h1>
 			<span class="main"><?php echo $filemanager->get_current_working_file(); ?></span>
-			<span class="sub">Last modified: <?php echo date('d M, Y H:i:s', filemtime($filemanager->get_current_working_file())); ?></span>
+			<span class="sub">Last modified: <?php echo date('d M, Y H:i:s', filemtime($filemanager->get_current_working_file_path())); ?></span>
 		</h1>
-			<pre class="prettyprint lang-<?php echo $filemanager->get_current_working_file_extension(); ?> linenums"><?php echo htmlentities(file_get_contents($filemanager->get_path($filemanager->get_current_working_file()))); ?></pre>
+			<pre class="prettyprint lang-<?php echo $filemanager->get_current_working_file_extension(); ?> linenums"><?php echo htmlentities(file_get_contents($filemanager->get_current_working_file_path())); ?></pre>
 		<?php else: ?>
 			<p>File not found :( </p>
 		<?php endif; ?>
