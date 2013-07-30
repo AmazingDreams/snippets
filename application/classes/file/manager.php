@@ -92,7 +92,7 @@ class File_Manager {
 
 		foreach($this->read_directory($this->get_current_working_dir()) as $node)
 		{
-			$array[filemtime($this->get_path($node))] = $node;
+			$array[filemtime($this->get_current_path($node))] = $node;
 		}
 
 		krsort($array);
@@ -141,6 +141,11 @@ class File_Manager {
 		return rtrim("{$this->get_snippet_base_dir()}/$append", '/');
 	}
 
+	public function get_current_path($append)
+	{
+		return $this->get_path("{$this->get_current_working_dir()}/$append");
+	}
+
 
 	/**
 	 * Get the directory above the current working directory
@@ -168,10 +173,15 @@ class File_Manager {
 		return rtrim($this->get_path($this->_dirpath), '/.');
 	}
 
+	public function get_current_working_file_path()
+	{
+		return $this->get_path($this->get_current_working_file());
+	}
+
 	/**
-	 * Get the full path to the current working file
+	 * Get current working file name
 	 *
-	 * @return  String  Full path to current working file
+	 * @return  String  current working file name
 	 */
 	public function get_current_working_file()
 	{
